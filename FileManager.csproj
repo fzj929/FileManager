@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>FX.FileManager</AssemblyName>
-    <RootNamespace>FX.FileManager</RootNamespace>
+    <AssemblyName>FileManager</AssemblyName>
+    <RootNamespace>FileManager</RootNamespace>
+    <UserSecretsId>c7653129-4ce0-4465-82ba-d9f31c386f5c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

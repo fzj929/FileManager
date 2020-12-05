@@ -6,6 +6,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\02.项目\65.人脸识别\webapi\FX.ClockIn\FX.ClockIn\bin\Release\netcoreapp3.1\publishLinux\</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\14.project\FileManager\02.code\bin\Release\netcoreapp3.1\publishLinux\</_PublishTargetUrl>
   </PropertyGroup>
 </Project>

@@ -39,11 +39,10 @@ namespace FileManager
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files")),
-                RequestPath = "/Files"
+                RequestPath = "/files"
             });
             app.UseRouting();
 
