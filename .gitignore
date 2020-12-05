@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/FileManager/v16/.suo
+/.vs/FX.ClockIn/v16/.suo
+/bin/Debug/netcoreapp3.1
+/obj
+/FileManager.csproj.user
