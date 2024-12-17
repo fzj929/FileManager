@@ -27,6 +27,17 @@ namespace FileManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<KestrelServerOptions>(options => {
+                options.Limits.MaxRequestBodySize = 524288000;
+                options.Limits.RequestHeadersTimeout = new TimeSpan(1,0,0);
+                                                  //134217728
+            });
+
+            services.Configure<FormOptions>(options =>
+            {
+                options.BufferBodyLengthLimit = 524288000;
+                options.MultipartBodyLengthLimit = 524288000;
+            });
             services.AddControllers().AddJsonOptions(configure => {
                 configure.JsonSerializerOptions.Converters.Add(new DatetimeJsonConverter());
             }) ;
