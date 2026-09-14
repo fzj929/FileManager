@@ -136,19 +136,10 @@ namespace FileManager.Controllers
 
         string createUrl(string f)
         {
-            //在nginx配置的location节点下中添加如下：
-            //  proxy_set_header X-Forwarded-Proto $scheme;  # 设置原始协议（http 或 https）
-            // 获取 X-Forwarded-Proto 头部的值
-            string protocol = Request.Headers["X-Forwarded-Proto"];
-            var scheme = this.Request.Scheme;
-            Console.WriteLine($"protocol:{protocol}");
-            if (protocol == "https")
-            {
-                scheme = protocol;
-            }
-            Console.WriteLine($"scheme:{scheme}");
-
-            var host = string.Format("{0}://{1}", protocol, this.Request.Host.ToString());
+            var origin = Request.Headers["Origin"].FirstOrDefault();
+            var host = string.IsNullOrWhiteSpace(origin)
+                ? $"{Request.Scheme}://{Request.Host}"
+                : origin.TrimEnd('/');
             var url = string.Format("{0}/files/{1}", host, f);// System.Net.WebUtility.UrlEncode(f));
             return url;
         }

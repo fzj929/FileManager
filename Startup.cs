@@ -6,7 +6,9 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -50,9 +52,15 @@ namespace FileManager
             {
                 app.UseDeveloperExceptionPage();
             }
+            var dir = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files");
+            if (!System.IO.Directory.Exists(dir))
+            {
+                System.IO.Directory.CreateDirectory(dir);
+            }
+
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files")),
+                FileProvider = new PhysicalFileProvider(dir),
                 RequestPath = "/files"
             });
             app.UseRouting();
